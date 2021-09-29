@@ -206,9 +206,9 @@ try {
 				}
 
 */
-		webelement Delete_Account = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Delete Account']"))).click();
+		WebElement Delete_Account = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Delete Account']"))).click();
 		
-		webelement radio_button = deiver.findelement(By.xpath("//input[@value='option1']")).click();
+		WebElement radio_button = deiver.findelement(By.xpath("//input[@value='option1']")).click();
 		
 		WebElement delete_Profile= driver.findElement(By.xpath("//button[normalize-space()='Delete Profile']"));
 		js.executeScript("arguments[0].scrollIntoView();",delete_Profile);
