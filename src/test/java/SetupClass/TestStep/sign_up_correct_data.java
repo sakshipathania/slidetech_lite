@@ -209,12 +209,12 @@ try {
 		WebElement Delete_Account = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Delete Account']")));
 		
 		Delete_Account.click();
-		WebElement radio_button = driver.findelement(By.xpath("//input[@value='option1']"));
+		WebElement radio_button = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@value='option1']")));
 		radio_button.click();
 		
-		WebElement delete_Profile= driver.findElement(By.xpath("//button[normalize-space()='Delete Profile']"));
+		WebElement delete_Profile= wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[normalize-space()='Delete Profile']")));
 		js.executeScript("arguments[0].scrollIntoView();",delete_Profile);
-		 delete_account.click();
+		 delete_Profile.click();
 		 Thread.sleep(3000);
 		 WebElement continue_delete = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(),'No, delete my')]")));
 		js.executeScript("arguments[0].scrollIntoView();",continue_delete);
