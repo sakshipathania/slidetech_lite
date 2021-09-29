@@ -211,7 +211,7 @@ try {
 		js.executeScript("arguments[0].scrollIntoView();",delete_account);
 		 delete_account.click();
 		 Thread.sleep(3000);
-		 WebElement continue_delete = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit'][contains(.,'Continue')]")));
+		 WebElement continue_delete = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[normalize-space()='I love discounts']")));
 		js.executeScript("arguments[0].scrollIntoView();",continue_delete);
 		continue_delete.click();
 		 Thread.sleep(3000);
