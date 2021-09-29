@@ -177,7 +177,7 @@ public class sign_up_correct_data extends Set {
 		 Thread.sleep(3000);
 		 
 		
-
+/*
 
 try {
 			WebElement iframe = driver.findElement(By.id("livechat-full-view"));
@@ -205,13 +205,16 @@ try {
 					
 				}
 
-
-
-		 WebElement delete_account = driver.findElement(By.xpath("//a[contains(text(),'Delete Account')]"));
-		js.executeScript("arguments[0].scrollIntoView();",delete_account);
+*/
+		webelement Delete_Account = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Delete Account']"))).click();
+		
+		webelement radio_button = deiver.findelement(By.xpath("//input[@value='option1']")).click();
+		
+		WebElement delete_Profile= driver.findElement(By.xpath("//button[normalize-space()='Delete Profile']"));
+		js.executeScript("arguments[0].scrollIntoView();",delete_Profile);
 		 delete_account.click();
 		 Thread.sleep(3000);
-		 WebElement continue_delete = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[normalize-space()='I love discounts']")));
+		 WebElement continue_delete = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(),'No, delete my')]")));
 		js.executeScript("arguments[0].scrollIntoView();",continue_delete);
 		continue_delete.click();
 		 Thread.sleep(3000);
