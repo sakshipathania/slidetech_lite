@@ -173,7 +173,7 @@ public class co_checkout extends Set{
 	     try {
 		Thread.sleep(1400);
 		// select 2co option
-		WebElement co_btn  = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#tco_checkout")));
+		WebElement co_btn  = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='amasty_stripe']")));
 		Thread.sleep(2000);
 	         co_btn.click();
 		Thread.sleep(5000);
