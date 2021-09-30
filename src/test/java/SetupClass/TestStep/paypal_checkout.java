@@ -106,7 +106,8 @@ public class paypal_checkout extends Set {
 		
 
 		Thread.sleep(2000);
-	    WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email_address']")));
+		WebElement new_email_signup =  driver.findElement(By.xpath("//input[@id='email_address']"));
+	   // WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email_address']")));
 		Thread.sleep(2000);
 	    new_email_signup.sendKeys(full_email);
 		Thread.sleep(2000);
