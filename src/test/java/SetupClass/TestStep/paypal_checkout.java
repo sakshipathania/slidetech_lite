@@ -78,6 +78,8 @@ public class paypal_checkout extends Set {
 			js.executeScript("arguments[0].click();", Sign_up);
 			
 		       // Sign_up.click();
+			String SignupUrl = driver.getCurrentUrl(); 
+		System.out.println("Signupurl = " + SignupUrl);
 			Thread.sleep(2000);
 			log.info("It's opening the website URL and redirect user to sign up page");
 		} 
@@ -113,8 +115,8 @@ public class paypal_checkout extends Set {
                
 		
 		System.out.println("user is on Sign up page");
-		String Signup_url = driver.getCurrentUrl(); 
-		System.out.println("url = " + Signup_url);
+		String Signup = driver.getCurrentUrl(); 
+		System.out.println("AfterSignUpurl = " + Signup);
 		Thread.sleep(5000);
 		//WebElement new_email_signup =  driver.findElement(By.xpath("//input[@id='email_address']"));
 	  //WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email_address']")));
