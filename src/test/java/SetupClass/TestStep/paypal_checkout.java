@@ -311,10 +311,44 @@ try {
 		js.executeScript("arguments[0].scrollIntoView();",delete_account);
 		 delete_account.click();
 		 Thread.sleep(3000);
-		 WebElement continue_delete = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div/div[1]/div/div[2]/form/button[1]")));
-		js.executeScript("arguments[0].scrollIntoView();",continue_delete);
-		continue_delete.click();
-		 Thread.sleep(3000);
+		String currentWindow = driver.getWindowHandle();
+		String popupWindowHandle = null;
+
+		// Switch To Popup Window
+
+		for (String handle : driver.getWindowHandles()) {
+			if (!handle.equals(currentWindow)) {
+
+				popupWindowHandle = handle;
+				driver.switchTo().window(popupWindowHandle);
+				System.out.println("window handled");
+
+				Thread.sleep(2000);
+
+			}
+		}
+		WebElement select_Radiobutton = driver.findElement(By.xpath("//input[@id='exampleRadios5']"));
+		select_Radiobutton.click();
+
+		Boolean value = driver.findElement(By.xpath("//input[@id='exampleRadios5']")).isSelected();
+		System.out.println("value = " + value);
+
+		WebElement delete_Profile = driver.findElement(By.xpath("//button[normalize-space()='Delete Profile']"));
+
+		delete_Profile.click();
+
+		js.executeScript("window.scrollTo(0,0)");
+		
+		WebElement copy_code = wait
+				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(" //input[@id='copy-code']")));
+		String code = copy_code.getAttribute("value");
+		System.out.println("code = " + code);
+
+		WebElement I_love_discount = wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//button[normalize-space()='I love discounts']")));
+
+		I_love_discount.click();
+		
 		
 	}
 
