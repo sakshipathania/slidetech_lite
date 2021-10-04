@@ -115,8 +115,10 @@ public class paypal_checkout extends Set {
 		System.out.println("user is on Sign up page");
 		Thread.sleep(5000);
 		//WebElement new_email_signup =  driver.findElement(By.xpath("//input[@id='email_address']"));
-	  WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email_address']")));
+	  //WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email_address']")));
 		Thread.sleep(2000);
+		
+	    WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/fieldset[1]/div[4]/div[1]/input[1]")));
 	    // js.executeScript("arguments[0].value='gmail.com';",  element );
 	       new_email_signup.sendKeys(full_email);
 		Thread.sleep(2000);
