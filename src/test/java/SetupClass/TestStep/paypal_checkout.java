@@ -113,6 +113,8 @@ public class paypal_checkout extends Set {
                
 		
 		System.out.println("user is on Sign up page");
+		String Signup_url = driver.getCurrentUrl(); 
+		System.out.println("url = " + Signup_url);
 		Thread.sleep(5000);
 		//WebElement new_email_signup =  driver.findElement(By.xpath("//input[@id='email_address']"));
 	  //WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email_address']")));
