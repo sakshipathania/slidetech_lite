@@ -72,7 +72,8 @@ public class paypal_checkout extends Set {
 	public void user_navigates_to_sign_up_page_pp() throws Throwable {
 		Thread.sleep(3000);
 		try {
-			driver.findElement(By.cssSelector("ul.header > li:nth-child(1) > a:nth-child(1)")).click();
+			WebElement Sign_up = driver.findElement(By.xpath("//a[normalize-space()='Sign up']"));
+		        Sign_up.click();
 			Thread.sleep(2000);
 			log.info("It's opening the website URL and redirect user to sign up page");
 		} 
