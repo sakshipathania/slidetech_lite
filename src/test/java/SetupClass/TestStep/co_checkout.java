@@ -258,7 +258,7 @@ try {
 
 
       Thread.sleep(3000);
-		WebElement Delete_Account = driver.findElementByXPath("//a[normalize-space()='Delete Account']");
+		WebElement Delete_Account = driver.findElement(By.xpath("//a[normalize-space()='Delete Account']"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", Delete_Account);
 		Thread.sleep(2000);
