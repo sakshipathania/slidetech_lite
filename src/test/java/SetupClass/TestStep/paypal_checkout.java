@@ -72,6 +72,7 @@ public class paypal_checkout extends Set {
 	public void user_navigates_to_sign_up_page_pp() throws Throwable {
 		Thread.sleep(3000);
 		try {
+			System.out.println("user is navigte to sign up page");
 			WebElement Sign_up = driver.findElement(By.xpath("//a[normalize-space()='Sign up']"));
 		        Sign_up.click();
 			Thread.sleep(2000);
@@ -106,7 +107,8 @@ public class paypal_checkout extends Set {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
 		//driver.findElement(By.id("email_address")).sendKeys(full_email);
 		
-
+                WebElement Sign_up = driver.findElement(By.xpath("//a[normalize-space()='Sign up']"));
+		Sign_up.click();
 		Thread.sleep(5000);
 		WebElement new_email_signup =  driver.findElement(By.xpath("//input[@id='email_address']"));
 	  // WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email_address']")));
