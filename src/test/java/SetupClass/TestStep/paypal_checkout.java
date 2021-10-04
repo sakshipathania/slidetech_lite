@@ -75,7 +75,9 @@ public class paypal_checkout extends Set {
 		try {
 			System.out.println("user is navigte to sign up page");
 			WebElement Sign_up = driver.findElement(By.xpath("//a[normalize-space()='Sign up']"));
-		        Sign_up.click();
+			js.executeScript("arguments[0].click();", Sign_up);
+			
+		       // Sign_up.click();
 			Thread.sleep(2000);
 			log.info("It's opening the website URL and redirect user to sign up page");
 		} 
@@ -108,8 +110,9 @@ public class paypal_checkout extends Set {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
 		//driver.findElement(By.id("email_address")).sendKeys(full_email);
 		
-                WebElement Sign_up = driver.findElement(By.xpath("//a[normalize-space()='Sign up']"));
-		Sign_up.click();
+               
+		
+		System.out.println("user is on Sign up page");
 		Thread.sleep(5000);
 		WebElement new_email_signup =  driver.findElement(By.xpath("//input[@id='email_address']"));
 	  // WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email_address']")));
