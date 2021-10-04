@@ -1,3 +1,4 @@
+
 package SetupClass.TestStep;
 
 import java.util.Random;
@@ -105,7 +106,7 @@ public class paypal_checkout extends Set {
 		//driver.findElement(By.id("email_address")).sendKeys(full_email);
 		
 
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		//WebElement new_email_signup =  driver.findElement(By.xpath("//input[@id='email_address']"));
 	   WebElement new_email_signup = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='email_address']")));
 		Thread.sleep(2000);
