@@ -120,6 +120,9 @@ public class paypal_checkout extends Set {
 		String Signup = driver.getCurrentUrl(); 
 		System.out.println("AfterSignUpurl = " + Signup);
 		Thread.sleep(5000);
+		driver.get("https://www.slideteam.net/customer/account/create/");
+		String Signup2 = driver.getCurrentUrl(); 
+		System.out.println("createPage  = " + Signup2);
 		//WebElement new_email_signup =  driver.findElement(By.xpath("//input[@id='email_address']"));
 	  //WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email_address']")));
 		Thread.sleep(2000);
