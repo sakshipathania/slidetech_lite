@@ -23,9 +23,7 @@ public class paypal_checkout extends Set {
 	
 	@Given("^user is already on Website Home Page pp$")
 	public void user_is_already_on_Website_Home_Page_pp() throws Throwable {
-		
 		driver.get(AppURL);
-		System.out.println("AppUrl = " + AppURL );
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
 	    Thread.sleep(2000);
@@ -40,37 +38,18 @@ public class paypal_checkout extends Set {
 		} catch (NoSuchElementException Ext) {
 
 		}
-	    Thread.sleep(1000);
+	    Thread.sleep(3000);
 		try {
-			WebElement iframe = driver.findElement(By.id("livechat-full-view"));
-			if(iframe.isDisplayed()) {
-				driver.switchTo().frame(iframe);   
-				 Actions act = new Actions(driver);
-				 act.moveToElement(driver.findElement(By.cssSelector("#title .icon-minimize"))).build().perform();
-				 Thread.sleep(2000);
-					WebElement chat1=driver.findElement(By.cssSelector("#title .icon-minimize"));
-					 Thread.sleep(1000);
-						chat1.click();
-						 Thread.sleep(1000);
-						 driver.switchTo().defaultContent();
-						 Thread.sleep(1000);
-						 driver.switchTo().parentFrame();
-					 Thread.sleep(1000);
-			}
-			else {
-				
-
-			System.out.println("chat window does not open");
-			}
+			driver.findElement(By.cssSelector("ul.header > li:nth-child(1) > a:nth-child(1)")).click();
+			Thread.sleep(2000);
+			log.info("It's opening the website URL and redirect user to sign up page");
+		} 
+		catch (NoSuchElementException popup) {
 		}
-				catch(NoSuchElementException NCP) {
-					
-				
-	    
-	}
 	}
 
-	@Then("^user navigates to sign up page pp$")
+
+	/*@Then("^user navigates to sign up page pp$")
 	public void user_navigates_to_sign_up_page_pp() throws Throwable {
 		
 		try {
@@ -87,7 +66,7 @@ public class paypal_checkout extends Set {
 		} 
 		catch (NoSuchElementException popup) {
 		}
-	}
+	}*/
 
 	@Then("^user create a new ac count pp$")
 	public void user_create_a_new_ac_count_pp() throws Throwable {
@@ -120,14 +99,12 @@ public class paypal_checkout extends Set {
 		String Signup = driver.getCurrentUrl(); 
 		System.out.println("AfterSignUpurl = " + Signup);
 		Thread.sleep(5000);
-		driver.get("https://www.slideteam.net/customer/account/create/");
-		String Signup2 = driver.getCurrentUrl(); 
-		System.out.println("createPage  = " + Signup2);
+		
 		//WebElement new_email_signup =  driver.findElement(By.xpath("//input[@id='email_address']"));
 	  //WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email_address']")));
 		Thread.sleep(2000);
-		
-	    WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/fieldset[1]/div[4]/div[1]/input[1]")));
+		WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("email_address")));
+	   // WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/fieldset[1]/div[4]/div[1]/input[1]")));
 	    // js.executeScript("arguments[0].value='gmail.com';",  element );
 	       new_email_signup.sendKeys(full_email);
 		Thread.sleep(2000);
