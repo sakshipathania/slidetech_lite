@@ -98,7 +98,11 @@ public class paypal_checkout extends Set {
 		System.out.println("user is on Sign up page");
 		String Signup = driver.getCurrentUrl(); 
 		System.out.println("AfterSignUpurl = " + Signup);
-		Thread.sleep(5000);
+		Thread.sleep(2000);
+		 WebElement new_fname_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("firstname")));
+		
+	    new_fname_signup.sendKeys("Selenium");
+		Thread.sleep(2000);
 		
 		//WebElement new_email_signup =  driver.findElement(By.xpath("//input[@id='email_address']"));
 	  //WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email_address']")));
@@ -111,10 +115,7 @@ public class paypal_checkout extends Set {
 		
 		// enter name
 
-	    WebElement new_fname_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("firstname")));
-		Thread.sleep(2000);
-	    new_fname_signup.sendKeys("Selenium");
-		Thread.sleep(2000);
+	   
 
 	    WebElement new_lname_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("lastname")));
 		Thread.sleep(2000);
