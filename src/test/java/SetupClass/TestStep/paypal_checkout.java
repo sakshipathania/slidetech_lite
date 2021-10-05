@@ -49,10 +49,10 @@ public class paypal_checkout extends Set {
 	}
 
 
-	/*@Then("^user navigates to sign up page pp$")
+	@Then("^user navigates to sign up page pp$")
 	public void user_navigates_to_sign_up_page_pp() throws Throwable {
 		
-		try {
+		/*try {
 			System.out.println("user is navigte to sign up page");
 			Thread.sleep(3000);
 			WebElement Sign_up = driver.findElement(By.xpath("//a[normalize-space()='Sign up']"));
@@ -65,8 +65,8 @@ public class paypal_checkout extends Set {
 			log.info("It's opening the website URL and redirect user to sign up page");
 		} 
 		catch (NoSuchElementException popup) {
-		}
-	}*/
+		}*/
+	}
 
 	@Then("^user create a new ac count pp$")
 	public void user_create_a_new_ac_count_pp() throws Throwable {
