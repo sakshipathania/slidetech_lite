@@ -28,7 +28,7 @@ public class paypal_checkout extends Set {
 		System.out.println("AppUrl = " + AppURL );
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
-	    /*Thread.sleep(2000);
+	    Thread.sleep(2000);
 	    try {
 			WebElement logout = driver.findElement(By.xpath("//a[contains(text(),'Sign Out')]"));
 			if (logout.isEnabled()) {
@@ -67,7 +67,7 @@ public class paypal_checkout extends Set {
 					
 				
 	    
-	}*/
+	}
 	}
 
 	@Then("^user navigates to sign up page pp$")
