@@ -72,13 +72,14 @@ public class paypal_checkout extends Set {
 
 	@Then("^user navigates to sign up page pp$")
 	public void user_navigates_to_sign_up_page_pp() throws Throwable {
-		Thread.sleep(3000);
+		
 		try {
 			System.out.println("user is navigte to sign up page");
+			Thread.sleep(3000);
 			WebElement Sign_up = driver.findElement(By.xpath("//a[normalize-space()='Sign up']"));
-			js.executeScript("arguments[0].click();", Sign_up);
+			//js.executeScript("arguments[0].click();", Sign_up);
 			
-		       // Sign_up.click();
+		        Sign_up.click();
 			String SignupUrl = driver.getCurrentUrl(); 
 		System.out.println("Signupurl = " + SignupUrl);
 			Thread.sleep(2000);
