@@ -27,19 +27,19 @@ public class co_checkout extends Set{
 		driver.get(AppURL);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
-	    //Thread.sleep(2000);
+	    Thread.sleep(3000);
 	    try {
 			WebElement logout = driver.findElement(By.xpath("//a[contains(text(),'Sign Out')]"));
 			if (logout.isEnabled()) {
 				logout.click();
-				//Thread.sleep(8000);
+				Thread.sleep(8000);
 				driver.navigate().refresh();
-				//Thread.sleep(2000);
+				Thread.sleep(2000);
 			}
 		} catch (NoSuchElementException Ext) {
 
 		}
-	   // Thread.sleep(1000);
+	    Thread.sleep(1000);
 		try {
 			WebElement iframe = driver.findElement(By.id("livechat-full-view"));
 			if(iframe.isDisplayed()) {
@@ -65,7 +65,7 @@ public class co_checkout extends Set{
 				catch(NoSuchElementException NCP) {
 					
 				}
-		//Thread.sleep(1000);
+		Thread.sleep(1000);
 	    
 	    
 	}
