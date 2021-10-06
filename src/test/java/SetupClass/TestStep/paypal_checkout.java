@@ -88,77 +88,67 @@ public class paypal_checkout extends Set {
 		// create new email for sign up
 		
 		int leftLimit = 97; // letter 'a'
-	    int rightLimit = 122; // letter 'z'
-	    int targetStringLength = 10;
-	    Random random = new Random();
-	    StringBuilder buffer = new StringBuilder(targetStringLength);
-	    for (int i = 0; i < targetStringLength; i++) {
-	        int randomLimitedInt = leftLimit + (int) 
-	          (random.nextFloat() * (rightLimit - leftLimit + 1));
-	        buffer.append((char) randomLimitedInt);
-	    }
-	    String generatedString = buffer.toString();
-	 
-	    System.out.println(generatedString);
-	    
-	    String signup_email=generatedString;
-	    String full_email="selenium.testing."+generatedString+"@gmail.com";
-	    System.out.println(full_email);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
-		//driver.findElement(By.id("email_address")).sendKeys(full_email);
-		
-               
-		
-		System.out.println("user is on Sign up page");
-		String Signup = driver.getCurrentUrl(); 
-		System.out.println("AfterSignUpurl = " + Signup);
-		Thread.sleep(2000);
-		 WebElement new_fname_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("firstname")));
-		
-	       new_fname_signup.sendKeys("Selenium");
-		Thread.sleep(2000);
-		
-		//WebElement new_email_signup =  driver.findElement(By.xpath("//input[@id='email_address']"));
-	  //WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email_address']")));
-		Thread.sleep(2000);
-		WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("email_address")));
-	   // WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/fieldset[1]/div[4]/div[1]/input[1]")));
-	    // js.executeScript("arguments[0].value='gmail.com';",  element );
-	       new_email_signup.sendKeys(full_email);
-		Thread.sleep(2000);
-		
-		// enter name
+			    int rightLimit = 122; // letter 'z'
+			    int targetStringLength = 10;
+			    Random random = new Random();
+			    StringBuilder buffer = new StringBuilder(targetStringLength);
+			    for (int i = 0; i < targetStringLength; i++) {
+			        int randomLimitedInt = leftLimit + (int) 
+			          (random.nextFloat() * (rightLimit - leftLimit + 1));
+			        buffer.append((char) randomLimitedInt);
+			    }
+			    String generatedString = buffer.toString();
+			 
+			    System.out.println(generatedString);
+			    
+			    String signup_email=generatedString;
+			    String full_email="selenium.testing."+generatedString+"@gmail.com";
+			    System.out.println(full_email);
+				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
+				//driver.findElement(By.id("email_address")).sendKeys(full_email);
+				String URLsign_up = driver.getCurrentUrl(); 
+		            System.out.println("AfterSignUpurl = " + URLsign_up);
 
-	   
+				Thread.sleep(2000);
+			    WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("email_address")));
+				Thread.sleep(2000);
+			    new_email_signup.sendKeys(full_email);
+				Thread.sleep(2000);
+				
+				// enter name
 
-	    WebElement new_lname_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("lastname")));
-		Thread.sleep(2000);
-	    new_lname_signup.sendKeys("Testing");
-		Thread.sleep(2000);
-		
-		//enter password
-		 WebElement new_pwd_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("password")));
-			Thread.sleep(2000);
-		    new_pwd_signup.sendKeys("selenium@123");
-			Thread.sleep(2000);
+			    WebElement new_fname_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("firstname")));
+				Thread.sleep(2000);
+			    new_fname_signup.sendKeys("Selenium");
+				Thread.sleep(2000);
 
-		    WebElement new_pwd1_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("password-confirmation")));
-			Thread.sleep(2000);
-		    new_pwd1_signup.sendKeys("selenium@123");
-			Thread.sleep(2000);
-			
-			// enter captcha
-			WebElement new_captcha_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("captcha_user_create")));
-			Thread.sleep(2000);
-		    new_captcha_signup.sendKeys("Aj7W2mtf9namwf55");
-			Thread.sleep(2000);
-		    
-		    // sign  up button
-		    WebElement new_btn_signup = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".submit")));
-			Thread.sleep(2000);
-		    new_btn_signup.click();
-			Thread.sleep(2000);
-	    
+			    WebElement new_lname_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("lastname")));
+				Thread.sleep(2000);
+			    new_lname_signup.sendKeys("Testing");
+				Thread.sleep(2000);
+				
+				//enter password
+				 WebElement new_pwd_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("password")));
+					Thread.sleep(2000);
+				    new_pwd_signup.sendKeys("selenium@123");
+					Thread.sleep(2000);
+
+				    WebElement new_pwd1_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("password-confirmation")));
+					Thread.sleep(2000);
+				    new_pwd1_signup.sendKeys("selenium@123");
+					Thread.sleep(2000);
+					
+					// enter captcha
+					WebElement new_captcha_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("captcha_user_create")));
+					Thread.sleep(2000);
+				    new_captcha_signup.sendKeys("Aj7W2mtf9namwf55");
+					Thread.sleep(2000);
+				    
+				    // sign  up button
+				    WebElement new_btn_signup = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".submit")));
+					Thread.sleep(2000);
+				    new_btn_signup.click();
+					Thread.sleep(2000);
 	}
 
 	@Then("^user is redirected to pricing page and choose a plan to pay pp$")
