@@ -26,8 +26,8 @@ public class co_checkout extends Set{
 		
 		driver.get(AppURL);
 		Thread.sleep(3000);
-		driver.navigate().refresh();
-		Thread.sleep(3000);
+		//driver.navigate().refresh();
+		//Thread.sleep(3000);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
 	    //Thread.sleep(8000);
@@ -36,7 +36,7 @@ public class co_checkout extends Set{
 			if (logout.isEnabled()) {
 				//Thread.sleep(5000);
 				//logout.click();
-				js.executeScript("arguments[0].click();", button);
+				js.executeScript("arguments[0].click();", logout);
 				Thread.sleep(5000);
 				//driver.navigate().refresh();
 				//Thread.sleep(9000);
