@@ -253,11 +253,11 @@ public class paypal_checkout extends Set {
 		    System.out.println("Title of the Page is --> "+pp_page_title);
 		    
 		 // place order button 
-			 WebElement cancel_order_btn  = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[contains(.,'Cancel and return to Slideteam Pte. Ltd.')])[2]")));
-				js.executeScript("arguments[0].scrollIntoView();",cancel_order_btn);
+			// WebElement cancel_order_btn  = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[contains(.,'Cancel and return to Slideteam Pte. Ltd.')])[2]")));
+			//	js.executeScript("arguments[0].scrollIntoView();",cancel_order_btn);
 		Thread.sleep(2000);
-			    cancel_order_btn.click();
-				Thread.sleep(5000);
+			   // cancel_order_btn.click();
+				//Thread.sleep(5000);
 
 				 // Switch To Default Window
 				  
