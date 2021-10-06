@@ -177,7 +177,7 @@ public class sign_up_correct_data extends Set {
 		 Thread.sleep(1000);
 		 
 		
-/*
+
 
 try {
 			WebElement iframe = driver.findElement(By.id("livechat-full-view"));
@@ -205,7 +205,7 @@ try {
 					
 				}
 
-*/
+
 		WebElement Delete_Account = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Delete Account']")));
 		
 		Delete_Account.click();
