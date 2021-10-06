@@ -97,12 +97,12 @@ public class sign_up_correct_data extends Set {
 	public void user_enter_password_and_confirm_password_to_sign_up_cd() throws InterruptedException  {
 	    
 		 WebElement new_pwd_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("password")));
-			Thread.sleep(1000);
+			//Thread.sleep(1000);
 		    new_pwd_signup.sendKeys("selenium@123");
 			Thread.sleep(1000);
 
 		    WebElement new_pwd1_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("password-confirmation")));
-			Thread.sleep(1000);
+			//Thread.sleep(1000);
 		    new_pwd1_signup.sendKeys("selenium@123");
 			Thread.sleep(1000);
 	}
@@ -111,7 +111,7 @@ public class sign_up_correct_data extends Set {
 	public void user_enter_captcha_to_sign_up_cd() throws InterruptedException  {
 	    
 		WebElement new_captcha_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("captcha_user_create")));
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
 	    new_captcha_signup.sendKeys("Aj7W2mtf9namwf55");
 		
 	}
@@ -124,7 +124,7 @@ public class sign_up_correct_data extends Set {
 		 * wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(
 		 * ".iCheck-helper"))); Thread.sleep(2000); new_checkbox_signup.click();
 		 */
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
 	}
 
 	@Then("^user click on sign up button to sign up cd$")
@@ -162,7 +162,7 @@ public class sign_up_correct_data extends Set {
 		WebElement dwnd_btn = driver.findElement(By.cssSelector("#clicking"));
 		js.executeScript("arguments[0].scrollIntoView();", dwnd_btn);
 		 dwnd_btn.click();
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 	   driver.get("https://www.slideteam.net/");
 	  // Thread.sleep(3000);
 	}
@@ -171,7 +171,7 @@ public class sign_up_correct_data extends Set {
 	public void user_delete_the_new_account_created_cd() throws InterruptedException  {
         Thread.sleep(1000);
 	    driver.get("https://www.slideteam.net/");
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 		
 	   driver.findElement(By.xpath("//a[contains(.,'My Account')]")).click();
 		 Thread.sleep(1000);
