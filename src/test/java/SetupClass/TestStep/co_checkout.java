@@ -32,9 +32,9 @@ public class co_checkout extends Set{
 		log.info("It's opening the website URL");
 	    Thread.sleep(8000);
 	   try {
-			WebElement logout = driver.findElement(By.xpath("//a[contains(text(),'Sign Out')]"));
+			WebElement logout = driver.findElement(By.xpath("//a[normalize-space()='Sign Out']"));
 			if (logout.isEnabled()) {
-				Thread.sleep(5000);
+				//Thread.sleep(5000);
 				logout.click();
 				Thread.sleep(5000);
 				driver.navigate().refresh();
