@@ -220,6 +220,8 @@ try {
 		js.executeScript("arguments[0].scrollIntoView();",continue_delete);
 		continue_delete.click();
 		 Thread.sleep(3000);
+		String URLsign_up = driver.getCurrentUrl(); 
+		            System.out.println("AfterSignUpurl = " + URLsign_up);
 	}
 
 
