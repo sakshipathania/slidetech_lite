@@ -33,9 +33,9 @@ public class paypal_checkout extends Set {
 			WebElement logout = driver.findElement(By.xpath("//a[contains(text(),'Sign Out')]"));
 			if (logout.isEnabled()) {
 				logout.click();
-				Thread.sleep(3000);
+				Thread.sleep(5000);
 				driver.navigate().refresh();
-				Thread.sleep(2000);
+				Thread.sleep(9000);
 			}
 		} catch (NoSuchElementException Ext) {
 
