@@ -18,7 +18,7 @@ import cucumber.api.java.en.Then;
 
 public class paypal_checkout extends Set {
 	
-	WebDriverWait wait = new WebDriverWait(driver,10);
+	WebDriverWait wait = new WebDriverWait(driver,20);
         JavascriptExecutor js = (JavascriptExecutor) driver;
 	
 	@Given("^user is already on Website Home Page pp$")
@@ -38,7 +38,7 @@ public class paypal_checkout extends Set {
 		} catch (NoSuchElementException Ext) {
 
 		}
-	    Thread.sleep(3000);
+	    //Thread.sleep(3000);
 		try {
 			driver.findElement(By.cssSelector("ul.header > li:nth-child(1) > a:nth-child(1)")).click();
 			Thread.sleep(2000);
@@ -49,7 +49,7 @@ public class paypal_checkout extends Set {
 	}
 
 
-	@Then("^user navigates to sign up page pp$")
+	/*@Then("^user navigates to sign up page pp$")
 	public void user_navigates_to_sign_up_page_pp() throws Throwable {
 		
 		/*try {
@@ -65,8 +65,8 @@ public class paypal_checkout extends Set {
 			log.info("It's opening the website URL and redirect user to sign up page");
 		} 
 		catch (NoSuchElementException popup) {
-		}*/
-	}
+		}
+	}*/
 
 	@Then("^user create a new ac count pp$")
 	public void user_create_a_new_ac_count_pp() throws Throwable {
@@ -101,7 +101,7 @@ public class paypal_checkout extends Set {
 		Thread.sleep(2000);
 		 WebElement new_fname_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("firstname")));
 		
-	    new_fname_signup.sendKeys("Selenium");
+	       new_fname_signup.sendKeys("Selenium");
 		Thread.sleep(2000);
 		
 		//WebElement new_email_signup =  driver.findElement(By.xpath("//input[@id='email_address']"));
