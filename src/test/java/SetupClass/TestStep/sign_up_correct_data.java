@@ -25,22 +25,22 @@ public class sign_up_correct_data extends Set {
 		driver.get(AppURL);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
-	    Thread.sleep(2000);
+	    Thread.sleep(1000);
 	    try {
 			WebElement logout = driver.findElement(By.xpath("//a[contains(text(),'Sign Out')]"));
 			if (logout.isEnabled()) {
 				logout.click();
-				Thread.sleep(8000);
+				Thread.sleep(2000);
 				driver.navigate().refresh();
 				Thread.sleep(2000);
 			}
 		} catch (NoSuchElementException Ext) {
 
 		}
-	    Thread.sleep(3000);
+	    Thread.sleep(1000);
 		try {
 			driver.findElement(By.cssSelector("ul.header > li:nth-child(1) > a:nth-child(1)")).click();
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 			log.info("It's opening the website URL and redirect user to sign up page");
 		} 
 		catch (NoSuchElementException popup) {
@@ -71,11 +71,11 @@ public class sign_up_correct_data extends Set {
 		//driver.findElement(By.id("email_address")).sendKeys(full_email);
 		
 
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 	    WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("email_address")));
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 	    new_email_signup.sendKeys(full_email);
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 	}
 
 	@Then("^User enter firstname and lastname to sign up cd$")
@@ -83,35 +83,35 @@ public class sign_up_correct_data extends Set {
 	    
 
 	    WebElement new_fname_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("firstname")));
-		Thread.sleep(2000);
+		//Thread.sleep(1000);
 	    new_fname_signup.sendKeys("Selenium");
-		Thread.sleep(2000);
+		//Thread.sleep(1000);
 
 	    WebElement new_lname_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("lastname")));
-		Thread.sleep(2000);
+		//Thread.sleep(1000);
 	    new_lname_signup.sendKeys("Testing");
-		Thread.sleep(2000);
+		//Thread.sleep(1000);
 	}
 
 	@Then("^user enter password and confirm password to sign up cd$")
 	public void user_enter_password_and_confirm_password_to_sign_up_cd() throws InterruptedException  {
 	    
 		 WebElement new_pwd_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("password")));
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 		    new_pwd_signup.sendKeys("selenium@123");
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 
 		    WebElement new_pwd1_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("password-confirmation")));
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 		    new_pwd1_signup.sendKeys("selenium@123");
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 	}
 
 	@Then("^user enter captcha to sign up cd$")
 	public void user_enter_captcha_to_sign_up_cd() throws InterruptedException  {
 	    
 		WebElement new_captcha_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("captcha_user_create")));
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 	    new_captcha_signup.sendKeys("Aj7W2mtf9namwf55");
 		
 	}
@@ -124,27 +124,27 @@ public class sign_up_correct_data extends Set {
 		 * wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(
 		 * ".iCheck-helper"))); Thread.sleep(2000); new_checkbox_signup.click();
 		 */
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 	}
 
 	@Then("^user click on sign up button to sign up cd$")
 	public void user_click_on_sign_up_button_to_sign_up_cd() throws InterruptedException  {
 	    
 		WebElement new_btn_signup = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".submit")));
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 	    new_btn_signup.click();
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 	   
 	}
 
 	@Then("^user lands on pricing page and then user go to free ppts page cd$")
 	public void user_lands_on_pricing_page_and_then_user_go_to_free_ppts_page_cd() throws InterruptedException  {
 		
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 		Actions actions = new Actions(driver);
 		WebElement free_ppt_btn1=wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Free Stuff")));
 		actions.moveToElement(free_ppt_btn1).moveToElement(driver.findElement(By.xpath("//a[contains(text(),'Free PPTs')]"))).click().build().perform();
-		Thread.sleep(7000);
+		//Thread.sleep(1000);
 		//WebElement free_ppt_btn=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/header/div[1]/div[2]/div/nav/div/div/ul/li[2]/div/ul/li[1]/a")));
 	    //free_ppt_btn.click();
 	    //Thread.sleep(2000);
@@ -157,24 +157,24 @@ public class sign_up_correct_data extends Set {
 		//Thread.sleep(3000);
 		
 		driver.get("https://www.slideteam.net/circular-flow-of-process-4-stages-powerpoint-slides-templates.html");
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		
 		WebElement dwnd_btn = driver.findElement(By.cssSelector("#clicking"));
 		js.executeScript("arguments[0].scrollIntoView();", dwnd_btn);
 		 dwnd_btn.click();
 		Thread.sleep(3000);
 	   driver.get("https://www.slideteam.net/");
-	   Thread.sleep(3000);
+	  // Thread.sleep(3000);
 	}
 
 	@Then("^user delete the new account created cd$")
 	public void user_delete_the_new_account_created_cd() throws InterruptedException  {
-        Thread.sleep(3000);
+        Thread.sleep(1000);
 	    driver.get("https://www.slideteam.net/");
 		Thread.sleep(2000);
 		
 	   driver.findElement(By.xpath("//a[contains(.,'My Account')]")).click();
-		 Thread.sleep(3000);
+		 Thread.sleep(1000);
 		 
 		
 /*
@@ -215,7 +215,7 @@ try {
 		WebElement delete_Profile= wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[normalize-space()='Delete Profile']")));
 		js.executeScript("arguments[0].scrollIntoView();",delete_Profile);
 		 delete_Profile.click();
-		 Thread.sleep(3000);
+		 //Thread.sleep(3000);
 		 WebElement continue_delete = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(),'No, delete my')]")));
 		js.executeScript("arguments[0].scrollIntoView();",continue_delete);
 		continue_delete.click();
