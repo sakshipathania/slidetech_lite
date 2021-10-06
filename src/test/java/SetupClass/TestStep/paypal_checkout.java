@@ -23,8 +23,8 @@ public class paypal_checkout extends Set {
 	
 	@Given("^user is already on Website Home Page pp$")
 	public void user_is_already_on_Website_Home_Page_pp() throws Throwable {
-		Thread.sleep(5000);
-		driver.get("https://www.slideteam.net/");
+		Thread.sleep(3000);
+		driver.get(AppURL);
 		//System.out.println("AppURL= " + AppURL);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
@@ -33,7 +33,7 @@ public class paypal_checkout extends Set {
 			WebElement logout = driver.findElement(By.xpath("//a[contains(text(),'Sign Out')]"));
 			if (logout.isEnabled()) {
 				logout.click();
-				Thread.sleep(8000);
+				Thread.sleep(3000);
 				driver.navigate().refresh();
 				//Thread.sleep(2000);
 			}
@@ -88,7 +88,7 @@ public class paypal_checkout extends Set {
 	public void user_create_a_new_ac_count_pp() throws Throwable {
 		
 		// create new email for sign up
-		
+		Thread.sleep(3000);
 		int leftLimit = 97; // letter 'a'
 			    int rightLimit = 122; // letter 'z'
 			    int targetStringLength = 10;
@@ -111,7 +111,7 @@ public class paypal_checkout extends Set {
 				String URLsign_up = driver.getCurrentUrl(); 
 		            System.out.println("AfterSignUpurl = " + URLsign_up);
 
-				Thread.sleep(1000);
+				Thread.sleep(3000);
 			    WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("email_address")));
 				//Thread.sleep(2000);
 			    new_email_signup.sendKeys(full_email);
