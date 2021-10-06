@@ -45,6 +45,7 @@ public class Set {
 			options.addArguments("--disable-notifications");
 			driver = new ChromeDriver(options);
 			driver.manage().window().maximize();
+			driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 			Thread.sleep(1000);
 		}
 		// if (browser.equalsIgnoreCase("firefox"))
