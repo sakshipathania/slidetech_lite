@@ -30,15 +30,16 @@ public class co_checkout extends Set{
 		Thread.sleep(3000);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
-	    Thread.sleep(8000);
+	    //Thread.sleep(8000);
 	   try {
 			WebElement logout = driver.findElement(By.xpath("//a[normalize-space()='Sign Out']"));
 			if (logout.isEnabled()) {
 				//Thread.sleep(5000);
-				logout.click();
+				//logout.click();
+				js.executeScript("arguments[0].click();", button);
 				Thread.sleep(5000);
-				driver.navigate().refresh();
-				Thread.sleep(9000);
+				//driver.navigate().refresh();
+				//Thread.sleep(9000);
 			}
 		} catch (NoSuchElementException Ext) {
 
