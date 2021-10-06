@@ -25,10 +25,13 @@ public class co_checkout extends Set{
 	public void user_is_already_on_Website_Home_Page_CO(int arg1) throws Throwable {
 		
 		driver.get(AppURL);
+		Thread.sleep(3000);
+		driver.navigate().refresh();
+		Thread.sleep(3000);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
 	    Thread.sleep(8000);
-	   /* try {
+	   try {
 			WebElement logout = driver.findElement(By.xpath("//a[contains(text(),'Sign Out')]"));
 			if (logout.isEnabled()) {
 				Thread.sleep(5000);
@@ -66,7 +69,7 @@ public class co_checkout extends Set{
 				catch(NoSuchElementException NCP) {
 					
 				}
-		Thread.sleep(3000);*/
+		Thread.sleep(3000);
 	    
 	    
 	}
