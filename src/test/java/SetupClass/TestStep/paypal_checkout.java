@@ -28,14 +28,14 @@ public class paypal_checkout extends Set {
 		//System.out.println("AppURL= " + AppURL);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
-	    //Thread.sleep(2000);
+	    Thread.sleep(5000);
 	    try {
-			WebElement logout = driver.findElement(By.xpath("//a[contains(text(),'Sign Out')]"));
+			WebElement logout = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'Sign Out')]"));
 			if (logout.isEnabled()) {
 				logout.click();
 				Thread.sleep(3000);
 				driver.navigate().refresh();
-				//Thread.sleep(2000);
+				Thread.sleep(2000);
 			}
 		} catch (NoSuchElementException Ext) {
 
@@ -112,7 +112,7 @@ public class paypal_checkout extends Set {
 		            System.out.println("AfterSignUpurl = " + URLsign_up);
 
 				Thread.sleep(3000);
-			    WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("email_address")));
+			    WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email_address']")));
 				//Thread.sleep(2000);
 			    new_email_signup.sendKeys(full_email);
 				Thread.sleep(1000);
