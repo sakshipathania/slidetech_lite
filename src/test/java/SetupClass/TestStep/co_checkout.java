@@ -27,34 +27,35 @@ public class co_checkout extends Set{
 		driver.get(AppURL);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
-	    Thread.sleep(3000);
+	    Thread.sleep(8000);
 	    try {
 			WebElement logout = driver.findElement(By.xpath("//a[contains(text(),'Sign Out')]"));
 			if (logout.isEnabled()) {
+				Thread.sleep(5000);
 				logout.click();
 				Thread.sleep(8000);
 				driver.navigate().refresh();
-				Thread.sleep(2000);
+				Thread.sleep(3000);
 			}
 		} catch (NoSuchElementException Ext) {
 
 		}
-	    Thread.sleep(1000);
+	    Thread.sleep(3000);
 		try {
 			WebElement iframe = driver.findElement(By.id("livechat-full-view"));
 			if(iframe.isDisplayed()) {
 				driver.switchTo().frame(iframe);   
 				 Actions act = new Actions(driver);
 				 act.moveToElement(driver.findElement(By.cssSelector("#title .icon-minimize"))).build().perform();
-				 Thread.sleep(1000);
+				 Thread.sleep(3000);
 					WebElement chat1=driver.findElement(By.cssSelector("#title .icon-minimize"));
-					 Thread.sleep(1000);
+					 Thread.sleep(3000);
 						chat1.click();
-						 Thread.sleep(1000);
+						 Thread.sleep(3000);
 						 driver.switchTo().defaultContent();
-						 Thread.sleep(1000);
+						 Thread.sleep(3000);
 						 driver.switchTo().parentFrame();
-					 Thread.sleep(1000);
+					 Thread.sleep(3000);
 			}
 			else {
 				
@@ -65,17 +66,19 @@ public class co_checkout extends Set{
 				catch(NoSuchElementException NCP) {
 					
 				}
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 	    
 	    
 	}
 
 	@Then("^user navigates to sign up page (\\d+)CO$")
 	public void user_navigates_to_sign_up_page_CO(int arg1) throws Throwable {
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		try {
-			driver.findElement(By.cssSelector("ul.header > li:nth-child(1) > a:nth-child(1)")).click();
-			Thread.sleep(2000);
+			WebElement Sign_Up = driver.findElement(By.cssSelector("ul.header > li:nth-child(1) > a:nth-child(1)"));
+			Thread.sleep(3000);
+			sign_Up.click();
+			//Thread.sleep(2000);
 			log.info("It's opening the website URL and redirect user to sign up page");
 		} 
 		catch (NoSuchElementException popup) {
@@ -85,7 +88,7 @@ public class co_checkout extends Set{
 	@Then("^user create a new ac count (\\d+)CO$")
 	public void user_create_a_new_ac_count_CO(int arg1) throws Throwable {
 		// create new email for sign up
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 				int leftLimit = 97; // letter 'a'
 			    int rightLimit = 122; // letter 'z'
 			    int targetStringLength = 10;
@@ -108,7 +111,7 @@ public class co_checkout extends Set{
 				String URLsign_up = driver.getCurrentUrl(); 
 		            System.out.println("AfterSignUpurl = " + URLsign_up);
 
-				Thread.sleep(3000);
+				Thread.sleep(5000);
 			    WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("email_address")));
 				//Thread.sleep(2000);
 			    new_email_signup.sendKeys(full_email);
