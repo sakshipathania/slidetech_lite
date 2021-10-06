@@ -51,13 +51,13 @@ public class co_checkout extends Set{
 				 act.moveToElement(driver.findElement(By.cssSelector("#title .icon-minimize"))).build().perform();
 				 Thread.sleep(3000);
 					WebElement chat1=driver.findElement(By.cssSelector("#title .icon-minimize"));
-					 Thread.sleep(3000);
+					 Thread.sleep(1000);
 						chat1.click();
-						 Thread.sleep(3000);
+						 Thread.sleep(1000);
 						 driver.switchTo().defaultContent();
-						 Thread.sleep(3000);
+						 Thread.sleep(1000);
 						 driver.switchTo().parentFrame();
-					 Thread.sleep(3000);
+					 Thread.sleep(1000);
 			}
 			else {
 				
@@ -68,7 +68,7 @@ public class co_checkout extends Set{
 				catch(NoSuchElementException NCP) {
 					
 				}
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 	    
 	    
 	}
@@ -80,7 +80,7 @@ public class co_checkout extends Set{
 			WebElement Sign_Up = driver.findElement(By.cssSelector("ul.header > li:nth-child(1) > a:nth-child(1)"));
 			Thread.sleep(3000);
 			Sign_Up.click();
-			//Thread.sleep(2000);
+			Thread.sleep(2000);
 			log.info("It's opening the website URL and redirect user to sign up page");
 		} 
 		catch (NoSuchElementException popup) {
@@ -113,7 +113,7 @@ public class co_checkout extends Set{
 				String URLsign_up = driver.getCurrentUrl(); 
 		            System.out.println("AfterSignUpurl = " + URLsign_up);
 
-				Thread.sleep(5000);
+				Thread.sleep(3000);
 			    WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("email_address")));
 				//Thread.sleep(2000);
 			    new_email_signup.sendKeys(full_email);
