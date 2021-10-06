@@ -24,7 +24,7 @@ public class co_checkout extends Set{
 	@Given("^user is already on Website Home Page (\\d+)CO$")
 	public void user_is_already_on_Website_Home_Page_CO(int arg1) throws Throwable {
 		
-		//driver.get(AppURL);
+		driver.get(AppURL);
 		//driver.navigate().to(AppURL);
 		//Thread.sleep(3000);
 		//driver.navigate().refresh();
@@ -37,7 +37,7 @@ public class co_checkout extends Set{
 			if (logout.isEnabled()) {
 				logout.click();
 				Thread.sleep(8000);
-				//driver.navigate().refresh();
+				driver.navigate().refresh();
 				Thread.sleep(2000);
 			}
 		} catch (NoSuchElementException Ext) {
