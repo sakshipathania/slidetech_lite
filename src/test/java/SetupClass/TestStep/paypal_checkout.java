@@ -18,7 +18,7 @@ import cucumber.api.java.en.Then;
 
 public class paypal_checkout extends Set {
 	
-	WebDriverWait wait = new WebDriverWait(driver,20);
+	WebDriverWait wait = new WebDriverWait(driver,50);
         JavascriptExecutor js = (JavascriptExecutor) driver;
 	
 	@Given("^user is already on Website Home Page pp$")
