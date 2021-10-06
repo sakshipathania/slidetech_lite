@@ -85,7 +85,7 @@ public class co_checkout extends Set{
 	@Then("^user create a new ac count (\\d+)CO$")
 	public void user_create_a_new_ac_count_CO(int arg1) throws Throwable {
 		// create new email for sign up
-		
+		Thread.sleep(3000);
 				int leftLimit = 97; // letter 'a'
 			    int rightLimit = 122; // letter 'z'
 			    int targetStringLength = 10;
@@ -108,7 +108,7 @@ public class co_checkout extends Set{
 				String URLsign_up = driver.getCurrentUrl(); 
 		            System.out.println("AfterSignUpurl = " + URLsign_up);
 
-				Thread.sleep(1000);
+				Thread.sleep(3000);
 			    WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("email_address")));
 				//Thread.sleep(2000);
 			    new_email_signup.sendKeys(full_email);
