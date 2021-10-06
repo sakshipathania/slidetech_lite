@@ -25,22 +25,22 @@ public class sign_up_correct_data extends Set {
 		driver.get(AppURL);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
-	    Thread.sleep(1000);
+	   // Thread.sleep(1000);
 	    try {
 			WebElement logout = driver.findElement(By.xpath("//a[contains(text(),'Sign Out')]"));
 			if (logout.isEnabled()) {
 				logout.click();
-				Thread.sleep(2000);
+				//Thread.sleep(2000);
 				driver.navigate().refresh();
-				Thread.sleep(2000);
+				//Thread.sleep(2000);
 			}
 		} catch (NoSuchElementException Ext) {
 
 		}
-	    Thread.sleep(1000);
+	    //Thread.sleep(1000);
 		try {
 			driver.findElement(By.cssSelector("ul.header > li:nth-child(1) > a:nth-child(1)")).click();
-			Thread.sleep(1000);
+			//Thread.sleep(1000);
 			log.info("It's opening the website URL and redirect user to sign up page");
 		} 
 		catch (NoSuchElementException popup) {
@@ -219,7 +219,7 @@ try {
 		 WebElement continue_delete = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(),'No, delete my')]")));
 		js.executeScript("arguments[0].scrollIntoView();",continue_delete);
 		continue_delete.click();
-		 Thread.sleep(3000);
+		 Thread.sleep(1000);
 		String URLsign_up = driver.getCurrentUrl(); 
 		            System.out.println("AfterSignUpurl = " + URLsign_up);
 	}
