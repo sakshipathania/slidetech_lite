@@ -77,7 +77,7 @@ public class co_checkout extends Set{
 		try {
 			WebElement Sign_Up = driver.findElement(By.cssSelector("ul.header > li:nth-child(1) > a:nth-child(1)"));
 			Thread.sleep(3000);
-			sign_Up.click();
+			Sign_Up.click();
 			//Thread.sleep(2000);
 			log.info("It's opening the website URL and redirect user to sign up page");
 		} 
