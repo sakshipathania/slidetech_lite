@@ -23,6 +23,7 @@ public class paypal_checkout extends Set {
 	
 	@Given("^user is already on Website Home Page pp$")
 	public void user_is_already_on_Website_Home_Page_pp() throws Throwable {
+		Thread.sleep(5000);
 		driver.get("https://www.slideteam.net/");
 		//System.out.println("AppURL= " + AppURL);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
