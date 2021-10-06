@@ -220,9 +220,9 @@ public class co_checkout extends Set{
 
 	@Then("^user deleted the account (\\d+)CO$")
 	public void user_deleted_the_account_CO(int arg1) throws Throwable {
-		//Thread.sleep(3000);
+		Thread.sleep(3000);
 	    driver.get("https://www.slideteam.net/");
-		//Thread.sleep(2000);
+		Thread.sleep(2000);
 		
 
 		driver.findElement(By.xpath("//a[contains(.,'My Account')]")).click();
@@ -237,15 +237,15 @@ try {
 				driver.switchTo().frame(iframe);   
 				 Actions act = new Actions(driver);
 				 act.moveToElement(driver.findElement(By.cssSelector("#title .icon-minimize"))).build().perform();
-				// Thread.sleep(2000);
+				Thread.sleep(2000);
 					WebElement chat1=driver.findElement(By.cssSelector("#title .icon-minimize"));
 					 Thread.sleep(1000);
 						chat1.click();
-						// Thread.sleep(1000);
+						Thread.sleep(1000);
 						 driver.switchTo().defaultContent();
-						// Thread.sleep(1000);
+						 Thread.sleep(1000);
 						 driver.switchTo().parentFrame();
-					// Thread.sleep(1000);
+					 Thread.sleep(1000);
 			}
 			else {
 				
@@ -262,7 +262,7 @@ try {
 		WebElement Delete_Account = driver.findElement(By.xpath("//a[normalize-space()='Delete Account']"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", Delete_Account);
-		//Thread.sleep(2000);
+		Thread.sleep(4000);
 		Delete_Account.click();
 		String currentWindow = driver.getWindowHandle();
 		String popupWindowHandle = null;
