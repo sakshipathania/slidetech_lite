@@ -36,9 +36,9 @@ public class co_checkout extends Set{
 			if (logout.isEnabled()) {
 				Thread.sleep(5000);
 				logout.click();
-				Thread.sleep(8000);
+				Thread.sleep(5000);
 				driver.navigate().refresh();
-				Thread.sleep(3000);
+				Thread.sleep(9000);
 			}
 		} catch (NoSuchElementException Ext) {
 
