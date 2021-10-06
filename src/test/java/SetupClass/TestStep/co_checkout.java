@@ -105,7 +105,8 @@ public class co_checkout extends Set{
 			    System.out.println(full_email);
 				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
 				//driver.findElement(By.id("email_address")).sendKeys(full_email);
-				
+				String URLsign_up = driver.getCurrentUrl(); 
+		            System.out.println("AfterSignUpurl = " + URLsign_up);
 
 				Thread.sleep(2000);
 			    WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("email_address")));
