@@ -38,7 +38,41 @@ public class paypal_checkout extends Set {
 		} catch (NoSuchElementException Ext) {
 
 		}
-	    //Thread.sleep(3000);
+	    Thread.sleep(1000);
+		try {
+			WebElement iframe = driver.findElement(By.id("livechat-full-view"));
+			if(iframe.isDisplayed()) {
+				driver.switchTo().frame(iframe);   
+				 Actions act = new Actions(driver);
+				 act.moveToElement(driver.findElement(By.cssSelector("#title .icon-minimize"))).build().perform();
+				 Thread.sleep(2000);
+					WebElement chat1=driver.findElement(By.cssSelector("#title .icon-minimize"));
+					 Thread.sleep(1000);
+						chat1.click();
+						 Thread.sleep(1000);
+						 driver.switchTo().defaultContent();
+						 Thread.sleep(1000);
+						 driver.switchTo().parentFrame();
+					 Thread.sleep(1000);
+			}
+			else {
+				
+
+			System.out.println("chat window does not open");
+			}
+		}
+				catch(NoSuchElementException NCP) {
+					
+				}
+		Thread.sleep(1000);
+	    
+	    
+	}
+
+
+	@Then("^user navigates to sign up page pp$")
+	public void user_navigates_to_sign_up_page_pp() throws Throwable {
+		Thread.sleep(3000);
 		try {
 			driver.findElement(By.cssSelector("ul.header > li:nth-child(1) > a:nth-child(1)")).click();
 			Thread.sleep(2000);
@@ -47,26 +81,6 @@ public class paypal_checkout extends Set {
 		catch (NoSuchElementException popup) {
 		}
 	}
-
-
-	/*@Then("^user navigates to sign up page pp$")
-	public void user_navigates_to_sign_up_page_pp() throws Throwable {
-		
-		/*try {
-			System.out.println("user is navigte to sign up page");
-			Thread.sleep(3000);
-			WebElement Sign_up = driver.findElement(By.xpath("//a[normalize-space()='Sign up']"));
-			//js.executeScript("arguments[0].click();", Sign_up);
-			
-		        Sign_up.click();
-			String SignupUrl = driver.getCurrentUrl(); 
-		System.out.println("Signupurl = " + SignupUrl);
-			Thread.sleep(2000);
-			log.info("It's opening the website URL and redirect user to sign up page");
-		} 
-		catch (NoSuchElementException popup) {
-		}
-	}*/
 
 	@Then("^user create a new ac count pp$")
 	public void user_create_a_new_ac_count_pp() throws Throwable {
