@@ -30,7 +30,7 @@ public class paypal_checkout extends Set {
 		log.info("It's opening the website URL");
 	    Thread.sleep(5000);
 	    try {
-			WebElement logout = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'Sign Out')]")));
+			WebElement logout = driver.findElement(By.xpath("//a[contains(text(),'Sign Out')]"));
 			if (logout.isEnabled()) {
 				logout.click();
 				Thread.sleep(3000);
