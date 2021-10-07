@@ -35,10 +35,15 @@ public class co_checkout extends Set{
 	   try {
 			WebElement logout = driver.findElement(By.xpath("//a[contains(text(),'Sign Out')]"));
 			if (logout.isEnabled()) {
+				
 				logout.click();
+				String afterlogout = driver.getCurrentUrl(); 
+		            System.out.println("AfterSignUpurl = " + afterlogout);
 				Thread.sleep(8000);
 				driver.navigate().refresh();
 				Thread.sleep(2000);
+				String afterrefresh = driver.getCurrentUrl(); 
+		            System.out.println("AfterSignUpurl = " + afterrefresh);
 			}
 		} catch (NoSuchElementException Ext) {
 
@@ -81,6 +86,8 @@ public class co_checkout extends Set{
 			WebElement Sign_Up = driver.findElement(By.cssSelector("ul.header > li:nth-child(1) > a:nth-child(1)"));
 			Thread.sleep(3000);
 			Sign_Up.click();
+			String aftersignup = driver.getCurrentUrl(); 
+		            System.out.println("AfterSignUpurl = " + aftersignup);
 			Thread.sleep(2000);
 			log.info("It's opening the website URL and redirect user to sign up page");
 		} 
