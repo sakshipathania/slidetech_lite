@@ -222,6 +222,9 @@ try {
 		 Thread.sleep(1000);
 		String URLsign_up = driver.getCurrentUrl(); 
 		            System.out.println("AfterSignUpurl = " + URLsign_up);
+		driver.get("https://www.slideteam.net/");
+		String afternavigation = driver.getCurrentUrl(); 
+		            System.out.println("AfterSignUpurl = " + afternavigation);
 	}
 
 
