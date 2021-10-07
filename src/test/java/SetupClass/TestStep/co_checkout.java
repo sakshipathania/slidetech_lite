@@ -39,11 +39,12 @@ public class co_checkout extends Set{
 			if (logout.isDisplayed()) {
 				 boolean value = logout.isDisplayed();
 				System.out.println("logoutvalue = " + value);
-				
-				logout.click();
+				Thread.sleep(3000);
+				js.executeScript("arguments[0].click();", logout);
+				Thread.sleep(15000);
 				String afterlogout = driver.getCurrentUrl(); 
 		            System.out.println("Afterlogout = " + afterlogout);
-				Thread.sleep(8000);
+				
 				driver.navigate().refresh();
 				Thread.sleep(2000);
 				String afterrefresh = driver.getCurrentUrl(); 
