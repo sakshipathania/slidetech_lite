@@ -43,13 +43,13 @@ public class co_checkout extends Set{
 				Thread.sleep(3000);
 				logout.click();
 				Thread.sleep(3000);
-				//driver.get("https://www.slideteam.com/");
+				logout.click();
 				Thread.sleep(3000);
 				String afterlogout = driver.getCurrentUrl(); 
 		            System.out.println("Afterlogout = " + afterlogout);
 				
-				driver.navigate().refresh();
-				Thread.sleep(2000);
+				//driver.navigate().refresh();
+				//Thread.sleep(2000);
 				String afterrefresh = driver.getCurrentUrl(); 
 		            System.out.println("Afterrefresh = " + afterrefresh);
 			}
