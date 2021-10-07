@@ -26,7 +26,7 @@ public class co_checkout extends Set{
 		
 		driver.get(AppURL);
 		//driver.getSessionStorage().clear();
-                driver.getLocalStorage().clear();
+                //driver.getLocalStorage().clear();
 		Thread.sleep(14000);
 		//driver.navigate().to(AppURL);
 		//Thread.sleep(3000);
