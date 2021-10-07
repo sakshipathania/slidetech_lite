@@ -23,9 +23,10 @@ public class co_checkout extends Set{
 	
 	@Given("^user is already on Website Home Page (\\d+)CO$")
 	public void user_is_already_on_Website_Home_Page_CO(int arg1) throws Throwable {
-		driver.getSessionStorage().clear();
-                driver.getLocalStorage().clear();
+		
 		driver.get(AppURL);
+		//driver.getSessionStorage().clear();
+                driver.getLocalStorage().clear();
 		Thread.sleep(14000);
 		//driver.navigate().to(AppURL);
 		//Thread.sleep(3000);
