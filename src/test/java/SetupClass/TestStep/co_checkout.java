@@ -48,8 +48,8 @@ public class co_checkout extends Set{
 				String afterlogout = driver.getCurrentUrl(); 
 		            System.out.println("Afterlogout = " + afterlogout);
 				
-				//driver.navigate().refresh();
-				//Thread.sleep(2000);
+				driver.navigate().refresh();
+				Thread.sleep(2000);
 				String afterrefresh = driver.getCurrentUrl(); 
 		            System.out.println("Afterrefresh = " + afterrefresh);
 			}
