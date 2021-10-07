@@ -33,23 +33,27 @@ public class co_checkout extends Set{
 		log.info("It's opening the website URL");
 	    Thread.sleep(2000);
 	   try {
+		   String incheckoutPage = driver.getCurrentUrl(); 
+		            System.out.println("incheckoutPage = " + incheckoutPage);
 			WebElement logout = driver.findElement(By.xpath("//a[contains(text(),'Sign Out')]"));
-			if (logout.isEnabled()) {
+			if (logout.isDisplayed()) {
+				 boolean value = logout.isDisplayed();
+				System.out.println("logoutvalue = " + value);
 				
 				logout.click();
 				String afterlogout = driver.getCurrentUrl(); 
-		            System.out.println("AfterSignUpurl = " + afterlogout);
+		            System.out.println("Afterlogout = " + afterlogout);
 				Thread.sleep(8000);
 				driver.navigate().refresh();
 				Thread.sleep(2000);
 				String afterrefresh = driver.getCurrentUrl(); 
-		            System.out.println("AfterSignUpurl = " + afterrefresh);
+		            System.out.println("Afterrefresh = " + afterrefresh);
 			}
 		} catch (NoSuchElementException Ext) {
 
 		}
 	    Thread.sleep(3000);
-		try {
+		/*try {
 			WebElement iframe = driver.findElement(By.id("livechat-full-view"));
 			if(iframe.isDisplayed()) {
 				driver.switchTo().frame(iframe);   
@@ -73,7 +77,7 @@ public class co_checkout extends Set{
 		}
 				catch(NoSuchElementException NCP) {
 					
-				}
+				}*/
 		//Thread.sleep(3000);
 	    
 	    
@@ -83,6 +87,8 @@ public class co_checkout extends Set{
 	public void user_navigates_to_sign_up_page_CO(int arg1) throws Throwable {
 		Thread.sleep(3000);
 		try {
+			String inSignuppageurl = driver.getCurrentUrl(); 
+		            System.out.println("inSignuppageurl = " + inSignuppageurl);
 			WebElement Sign_Up = driver.findElement(By.cssSelector("ul.header > li:nth-child(1) > a:nth-child(1)"));
 			Thread.sleep(3000);
 			Sign_Up.click();
@@ -122,7 +128,7 @@ public class co_checkout extends Set{
 		            System.out.println("AfterSignUpurl = " + URLsign_up);
 
 				Thread.sleep(3000);
-			    WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.id("email_address")));
+			    WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/fieldset[1]/div[4]/div[1]/input[1]")));
 				//Thread.sleep(2000);
 			    new_email_signup.sendKeys(full_email);
 				Thread.sleep(1000);
