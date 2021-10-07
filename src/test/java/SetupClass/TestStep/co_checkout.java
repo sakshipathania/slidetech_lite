@@ -93,7 +93,7 @@ public class co_checkout extends Set{
 	public void user_navigates_to_sign_up_page_CO(int arg1) throws Throwable {
 		Thread.sleep(3000);
 		try {
-			 driver.get("https://www.slideteam.net/customer/account/create/");
+			// driver.get("https://www.slideteam.net/customer/account/create/");
 			String inSignuppageurl = driver.getCurrentUrl(); 
 		            System.out.println("inSignuppageurl = " + inSignuppageurl);
 			WebElement Sign_Up = driver.findElement(By.cssSelector("ul.header > li:nth-child(1) > a:nth-child(1)"));
@@ -131,7 +131,7 @@ public class co_checkout extends Set{
 			    System.out.println(full_email);
 				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
 				//driver.findElement(By.id("email_address")).sendKeys(full_email);
-		            driver.get("https://www.slideteam.net/customer/account/create/");
+		          //  driver.get("https://www.slideteam.net/customer/account/create/");
 				String URLsign_up = driver.getCurrentUrl(); 
 		            System.out.println("AfterSignUpurl = " + URLsign_up);
 
