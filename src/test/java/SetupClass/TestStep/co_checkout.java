@@ -33,7 +33,7 @@ public class co_checkout extends Set{
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
 	    Thread.sleep(2000);
-	  /* try {
+	   try {
 		   String incheckoutPage = driver.getCurrentUrl(); 
 		            System.out.println("incheckoutPage = " + incheckoutPage);
 			WebElement logout = driver.findElement(By.xpath("//a[contains(text(),'Sign Out')]"));
@@ -41,8 +41,10 @@ public class co_checkout extends Set{
 				 boolean value = logout.isDisplayed();
 				System.out.println("logoutvalue = " + value);
 				Thread.sleep(3000);
-				js.executeScript("arguments[0].click();", logout);
-				Thread.sleep(15000);
+				logout.click();
+				Thread.sleep(3000);
+				driver.get("https://www.slideteam.com/");
+				Thread.sleep(3000);
 				String afterlogout = driver.getCurrentUrl(); 
 		            System.out.println("Afterlogout = " + afterlogout);
 				
@@ -79,7 +81,7 @@ public class co_checkout extends Set{
 		}
 				catch(NoSuchElementException NCP) {
 					
-				}*/
+				}
 		//Thread.sleep(3000);
 	    
 	    
