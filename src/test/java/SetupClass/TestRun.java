@@ -9,7 +9,7 @@ import cucumber.api.junit.Cucumber;
 //import gherkin.formatter.MonochromeFormats;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = {"."}, tags= {"@paypal_checkout, @2CO_checkout, @Sign_Up_Correct_Data"},
+@CucumberOptions(features = {"."}, //tags= {"@paypal_checkout, @2CO_checkout, @Sign_Up_Correct_Data"},
 plugin= {"pretty","html:target/site/cucumber-pretty","json:target/cucumber/cucumber.json","usage:target/usage.jsonx","junit:target/cucumber.xml"}//,
 //monochrome = true, //display the console output in a proper readable format
 //strict = true, //it will check if any step is not defined in step definition file
