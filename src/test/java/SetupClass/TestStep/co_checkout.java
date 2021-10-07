@@ -36,14 +36,14 @@ public class co_checkout extends Set{
 	   try {
 		   String incheckoutPage = driver.getCurrentUrl(); 
 		            System.out.println("incheckoutPage = " + incheckoutPage);
-			WebElement logout = driver.findElement(By.xpath("//a[contains(text(),'Sign Out')]"));
+			WebElement logout = driver.findElement(By.xpath("//a[normalize-space()='Sign Out']"));
 			if (logout.isDisplayed()) {
 				 boolean value = logout.isDisplayed();
 				System.out.println("logoutvalue = " + value);
 				Thread.sleep(3000);
 				logout.click();
 				Thread.sleep(3000);
-				driver.get("https://www.slideteam.com/");
+				//driver.get("https://www.slideteam.com/");
 				Thread.sleep(3000);
 				String afterlogout = driver.getCurrentUrl(); 
 		            System.out.println("Afterlogout = " + afterlogout);
