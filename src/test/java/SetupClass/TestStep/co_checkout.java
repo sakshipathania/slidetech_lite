@@ -131,6 +131,7 @@ public class co_checkout extends Set{
 			    System.out.println(full_email);
 				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
 				//driver.findElement(By.id("email_address")).sendKeys(full_email);
+		            driver.get("https://www.slideteam.net/customer/account/create/");
 				String URLsign_up = driver.getCurrentUrl(); 
 		            System.out.println("AfterSignUpurl = " + URLsign_up);
 
