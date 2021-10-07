@@ -32,7 +32,7 @@ public class co_checkout extends Set{
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
 	    Thread.sleep(2000);
-	   try {
+	  /* try {
 		   String incheckoutPage = driver.getCurrentUrl(); 
 		            System.out.println("incheckoutPage = " + incheckoutPage);
 			WebElement logout = driver.findElement(By.xpath("//a[contains(text(),'Sign Out')]"));
@@ -54,7 +54,7 @@ public class co_checkout extends Set{
 
 		}
 	    Thread.sleep(3000);
-		/*try {
+		try {
 			WebElement iframe = driver.findElement(By.id("livechat-full-view"));
 			if(iframe.isDisplayed()) {
 				driver.switchTo().frame(iframe);   
