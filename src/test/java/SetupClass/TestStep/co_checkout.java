@@ -93,6 +93,7 @@ public class co_checkout extends Set{
 	public void user_navigates_to_sign_up_page_CO(int arg1) throws Throwable {
 		Thread.sleep(3000);
 		try {
+			driver.get(AppURL);
 			String inSignuppageurl = driver.getCurrentUrl(); 
 		            System.out.println("inSignuppageurl = " + inSignuppageurl);
 			WebElement Sign_Up = driver.findElement(By.cssSelector("ul.header > li:nth-child(1) > a:nth-child(1)"));
