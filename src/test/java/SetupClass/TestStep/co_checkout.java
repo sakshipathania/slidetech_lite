@@ -321,6 +321,7 @@ try {
 				.visibilityOfElementLocated(By.xpath("//button[normalize-space()='I love discounts']")));
 
 		delete.click();
+		Thread.sleep(2000);
 
 	}
 
