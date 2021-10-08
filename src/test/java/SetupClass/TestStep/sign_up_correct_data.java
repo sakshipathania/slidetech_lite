@@ -219,12 +219,12 @@ try {
 		 WebElement continue_delete = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(),'No, delete my')]")));
 		js.executeScript("arguments[0].scrollIntoView();",continue_delete);
 		continue_delete.click();
-		 Thread.sleep(1000);
-		String URLsign_up = driver.getCurrentUrl(); 
-		            System.out.println("AfterSignUpurl = " + URLsign_up);
-		driver.get("https://www.slideteam.net/");
-		String afternavigation = driver.getCurrentUrl(); 
-		            System.out.println("AfterSignUpurl = " + afternavigation);
+		 Thread.sleep(2000);
+		//String URLsign_up = driver.getCurrentUrl(); 
+		          //  System.out.println("AfterSignUpurl = " + URLsign_up);
+		//driver.get("https://www.slideteam.net/");
+		//String afternavigation = driver.getCurrentUrl(); 
+		            //System.out.println("AfterSignUpurl = " + afternavigation);
 	}
 
 
