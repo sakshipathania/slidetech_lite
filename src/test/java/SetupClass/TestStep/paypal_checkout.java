@@ -23,13 +23,13 @@ public class paypal_checkout extends Set {
 	
 	@Given("^user is already on Website Home Page pp$")
 	public void user_is_already_on_Website_Home_Page_pp() throws Throwable {
-		Thread.sleep(6000);
-		driver.get(AppURL);
+		//Thread.sleep(6000);
+		//driver.get(AppURL);
 		//System.out.println("AppURL= " + AppURL);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
 	    Thread.sleep(5000);
-	    try {
+	   /* try {
 			WebElement logout = driver.findElement(By.xpath("//a[contains(text(),'Sign Out')]"));
 			if (logout.isEnabled()) {
 				logout.click();
@@ -39,8 +39,8 @@ public class paypal_checkout extends Set {
 			}
 		} catch (NoSuchElementException Ext) {
 
-		}
-	    Thread.sleep(500);
+		}*/
+	    Thread.sleep(1000);
 		try {
 			WebElement iframe = driver.findElement(By.id("livechat-full-view"));
 			if(iframe.isDisplayed()) {
