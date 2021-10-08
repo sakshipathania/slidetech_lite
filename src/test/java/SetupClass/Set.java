@@ -45,7 +45,6 @@ public class Set {
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--disable-notifications");
 			driver = new ChromeDriver(options);
-			Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
 		     
 			driver.manage().window().maximize();
 			driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
