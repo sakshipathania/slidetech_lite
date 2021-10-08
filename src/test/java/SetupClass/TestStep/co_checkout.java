@@ -85,17 +85,12 @@ public class co_checkout extends Set{
 
 	@Then("^user navigates to sign up page (\\d+)CO$")
 	public void user_navigates_to_sign_up_page_CO(int arg1) throws Throwable {
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		try {
 			// driver.get("https://www.slideteam.net/customer/account/create/");
-			String inSignuppageurl = driver.getCurrentUrl(); 
-		            System.out.println("inSignuppageurl = " + inSignuppageurl);
 			WebElement Sign_Up = driver.findElement(By.cssSelector("ul.header > li:nth-child(1) > a:nth-child(1)"));
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 			Sign_Up.click();
-			String aftersignup = driver.getCurrentUrl(); 
-		            System.out.println("AfterSignUpurl = " + aftersignup);
-			Thread.sleep(2000);
 			log.info("It's opening the website URL and redirect user to sign up page");
 		} 
 		catch (NoSuchElementException popup) {
@@ -126,10 +121,10 @@ public class co_checkout extends Set{
 				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
 				//driver.findElement(By.id("email_address")).sendKeys(full_email);
 		          //  driver.get("https://www.slideteam.net/customer/account/create/");
-				String URLsign_up = driver.getCurrentUrl(); 
-		            System.out.println("AfterSignUpurl = " + URLsign_up);
+				//String URLsign_up = driver.getCurrentUrl(); 
+		           // System.out.println("AfterSignUpurl = " + URLsign_up);
 
-				Thread.sleep(3000);
+				Thread.sleep(1000);
 			    WebElement new_email_signup = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[1]/form[1]/fieldset[1]/div[4]/div[1]/input[1]")));
 				//Thread.sleep(2000);
 			    new_email_signup.sendKeys(full_email);
@@ -321,6 +316,9 @@ try {
 				.visibilityOfElementLocated(By.xpath("//button[normalize-space()='I love discounts']")));
 
 		delete.click();
+		Thread.sleep(2000);
+		WebElement Sign_Out  = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Sign Out']")));
+		Sign_Out.click();
 		Thread.sleep(2000);
 
 	}
