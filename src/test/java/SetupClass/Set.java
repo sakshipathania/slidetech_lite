@@ -45,6 +45,11 @@ public class Set {
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--disable-notifications");
 			driver = new ChromeDriver(options);
+			Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
+		      Map<String, Object> mp = cap.asMap();
+		      mp.forEach((key, value) -> {
+		         System.out.println("Key is: " + key + " Value is: " + value);
+		      });
 			driver.manage().window().maximize();
 			driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 			Thread.sleep(1000);
