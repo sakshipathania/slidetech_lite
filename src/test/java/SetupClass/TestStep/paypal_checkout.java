@@ -28,7 +28,7 @@ public class paypal_checkout extends Set {
 		//System.out.println("AppURL= " + AppURL);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
-	    Thread.sleep(5000);
+	    Thread.sleep(3000);
 	   /* try {
 			WebElement logout = driver.findElement(By.xpath("//a[contains(text(),'Sign Out')]"));
 			if (logout.isEnabled()) {
@@ -88,7 +88,7 @@ public class paypal_checkout extends Set {
 	public void user_create_a_new_ac_count_pp() throws Throwable {
 		
 		// create new email for sign up
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		int leftLimit = 97; // letter 'a'
 			    int rightLimit = 122; // letter 'z'
 			    int targetStringLength = 10;
