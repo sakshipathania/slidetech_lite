@@ -27,7 +27,7 @@ public class Set {
 	public static String local_FFbrowser;
 	public String Button_Click_Time;
 	public String message_write_time;
-	public String TestFile = "C:\\Users\\slide53\\eclipse-workspace\\SlideTeamWebsiteFormsAuto\\write.txt";
+	//public String TestFile = "C:\\Users\\slide53\\eclipse-workspace\\SlideTeamWebsiteFormsAuto\\write.txt";
 	
 	@BeforeClass
 	public static void before_Class() throws Exception {
@@ -66,8 +66,8 @@ public class Set {
 
 		driver.get(AppURL);
 		Thread.sleep(2000);
-	    driver.manage().deleteAllCookies();
-	    Thread.sleep(2000);
+	        driver.manage().deleteAllCookies();
+	        Thread.sleep(2000);
 
 			
 		}
