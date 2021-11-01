@@ -23,64 +23,23 @@ public class co_checkout extends Set{
 	
 	@Given("^user is already on Website Home Page (\\d+)CO$")
 	public void user_is_already_on_Website_Home_Page_CO(int arg1) throws Throwable {
-		//Thread.sleep(6000);
-		//driver.get(AppURL);
-		//Thread.sleep(3000);
-		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+		driver.get(AppURL);
+		Thread.sleep(2000);
+		driver.manage().deleteAllCookies();
+		Thread.sleep(2000);
+
 		log.info("It's opening the website URL");
-	    //Thread.sleep(2000);
-	  /* try {
-		   String incheckoutPage = driver.getCurrentUrl(); 
-		            System.out.println("incheckoutPage = " + incheckoutPage);
-			WebElement logout = driver.findElement(By.xpath("//a[normalize-space()='Sign Out']"));
+		try {
+			WebElement logout = driver.findElement(By.xpath("//a[contains(text(),'Sign Out')]"));
 			if (logout.isEnabled()) {
-				 boolean value = logout.isEnabled();
-				System.out.println("logoutvalue = " + value);
-				//Thread.sleep(3000);
 				logout.click();
-				Thread.sleep(3000);
-				//logout.click();
-				Thread.sleep(8000);
-				String afterlogout = driver.getCurrentUrl(); 
-		            System.out.println("Afterlogout = " + afterlogout);
-				
+				// Thread.sleep(2000);
 				driver.navigate().refresh();
-				Thread.sleep(2000);
-				String afterrefresh = driver.getCurrentUrl(); 
-		            System.out.println("Afterrefresh = " + afterrefresh);
+				// Thread.sleep(2000);
 			}
 		} catch (NoSuchElementException Ext) {
 
-		}*/
-	    Thread.sleep(3000);
-		try {
-			WebElement iframe = driver.findElement(By.id("livechat-full-view"));
-			if(iframe.isDisplayed()) {
-				driver.switchTo().frame(iframe);   
-				 Actions act = new Actions(driver);
-				 act.moveToElement(driver.findElement(By.cssSelector("#title .icon-minimize"))).build().perform();
-				 Thread.sleep(3000);
-					WebElement chat1=driver.findElement(By.cssSelector("#title .icon-minimize"));
-					 Thread.sleep(1000);
-						chat1.click();
-						 Thread.sleep(1000);
-						 driver.switchTo().defaultContent();
-						 Thread.sleep(1000);
-						 driver.switchTo().parentFrame();
-					 Thread.sleep(1000);
-			}
-			else {
-				
-
-			System.out.println("chat window does not open");
-			}
-		}
-				catch(NoSuchElementException NCP) {
-					
-				}
-		//Thread.sleep(3000);
-	    
-	    
+		}    
 	}
 
 	@Then("^user navigates to sign up page (\\d+)CO$")
@@ -170,13 +129,12 @@ public class co_checkout extends Set{
 	public void user_is_redirected_to_pricing_page_and_choose_a_plan_to_pay_CO(int arg1) throws Throwable {
 		// choose a plan
 		
-		driver.get("https://www.slideteam.net/pricing?utm_expid=.ob6CI18MTrailD_9AQRC-g.0&utm_referrer=https%3A%2F%2Fwww.slideteam.net%2Fpricing");
-		//Thread.sleep(3000);
+		Thread.sleep(2000);
 		js.executeScript("window.scrollBy(0,1000)");
-		 WebElement join_now_btn  = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[contains(.,'Join now')])[8]")));
-			//Thread.sleep(2000);
-		    join_now_btn.click();
-			//Thread.sleep(6000);
+		WebElement join_now_btn = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[contains(.,'Join now')])[8]")));
+
+		join_now_btn.click();
 
 	}
 
@@ -187,27 +145,26 @@ public class co_checkout extends Set{
 
 	@Then("^user proceed to pay with (\\d+)CO (\\d+)CO$")
 	public void user_proceed_to_pay_with_CO_CO(int arg1, int arg2) throws InterruptedException {
-	     try {
-		Thread.sleep(1000);
-		// select 2co option
-		WebElement co_btn  = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='amasty_stripe']")));
-		//Thread.sleep(2000);
-	         co_btn.click();
-		//Thread.sleep(5000);
-	     } catch( NoSuchElementException popup) { 
-	     }
-		
-		// place order button 
-		try {
-			
-		 WebElement place_order_btn  =  driver.findElement(By.cssSelector("#place-order-trigger > span"));
-			//Thread.sleep(2000);
-			js.executeScript("arguments[0].scrollIntoView();",place_order_btn);	
-			//js.executeScript("arguments[0].click();", place_order_btn);
-			//Thread.sleep(2000);
-		    place_order_btn.click();
-			//Thread.sleep(5000);
-		} catch (NoSuchElementException popup) {
+	    try {
+			Thread.sleep(1000);
+			// select 2co option
+			WebElement co_btn = wait
+					.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='amasty_stripe']")));
+			// Thread.sleep(2000);
+			co_btn.click();
+
+			Set.Chat_window_handle();
+			// place order button
+
+			WebElement place_order_btn = wait.until(ExpectedConditions.elementToBeClickable(
+					By.xpath("//button[@id='place-order-trigger']//span[contains(text(),'Place Order')] ")));
+			Thread.sleep(2000);
+			js.executeScript("arguments[0].scrollIntoView();", place_order_btn);
+
+			place_order_btn.click();
+			Thread.sleep(2000);
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
 		
 		
@@ -215,113 +172,52 @@ public class co_checkout extends Set{
 
 	@Then("^paypal popup appears and user navigates back to my account (\\d+)CO$")
 	public void paypal_popup_appears_and_user_navigates_back_to_my_account_CO(int arg1) throws Throwable {
-	    String co_page_title=driver.getTitle();
-		//Thread.sleep(3000);
-	    System.out.println("Title of the Page is --> "+co_page_title);
-	    
-	    String page_title="2Checkout";
-	    
-	    if(page_title.equalsIgnoreCase(co_page_title))
-	    {
-	    	System.out.println(" user is on the 2checkout page");
-	    	log.info("USER IS ON THE 2CHECKOUT PAGE");
-	    }
-	    else
-	    {
-	    	System.out.println("user is on the wrong page");
-	    	log.info("USER IS ON THE WRONG PAGE");
-	    }
-		//Thread.sleep(3000);
+	   String co_page_title = driver.getTitle();
+		Thread.sleep(3000);
+		System.out.println("Title of the Page is --> " + co_page_title);
+
+		String page_title = "Checkout";
+
+		if (page_title.equalsIgnoreCase(co_page_title)) {
+			System.out.println(" user is on the 2checkout page");
+			log.info("USER IS ON THE 2CHECKOUT PAGE");
+		} else {
+			System.out.println("user is on the wrong page");
+			log.info("USER IS ON THE WRONG PAGE");
+		}
 	}
 
 	@Then("^user deleted the account (\\d+)CO$")
 	public void user_deleted_the_account_CO(int arg1) throws Throwable {
-		Thread.sleep(3000);
-	    driver.get("https://www.slideteam.net/");
 		Thread.sleep(2000);
-		
+		WebElement My_Account = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("My Account")));
+		js.executeScript("arguments[0].click();", My_Account);
+		// My_Account.click();
 
-		driver.findElement(By.xpath("//a[contains(.,'My Account')]")).click();
-		 Thread.sleep(3000);
-		 
-		
+		// handling the chat window here
+		Set.Chat_window_handle();
 
+		WebElement Delete_Account = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Delete Account']")));
 
-try {
-			WebElement iframe = driver.findElement(By.id("livechat-full-view"));
-			if(iframe.isDisplayed()) {
-				driver.switchTo().frame(iframe);   
-				 Actions act = new Actions(driver);
-				 act.moveToElement(driver.findElement(By.cssSelector("#title .icon-minimize"))).build().perform();
-				Thread.sleep(2000);
-					WebElement chat1=driver.findElement(By.cssSelector("#title .icon-minimize"));
-					 Thread.sleep(1000);
-						chat1.click();
-						Thread.sleep(1000);
-						 driver.switchTo().defaultContent();
-						 Thread.sleep(1000);
-						 driver.switchTo().parentFrame();
-					 Thread.sleep(1000);
-			}
-			else {
-				
-
-			System.out.println("chat window does not open");
-			}
-		}
-				catch(NoSuchElementException NCP) {
-					
-				}
-
-
-      Thread.sleep(3000);
-		WebElement Delete_Account = driver.findElement(By.xpath("//a[normalize-space()='Delete Account']"));
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView();", Delete_Account);
-		Thread.sleep(4000);
 		Delete_Account.click();
-		String currentWindow = driver.getWindowHandle();
-		String popupWindowHandle = null;
-
-		// Switch To Popup Window
-
-		for (String handle : driver.getWindowHandles()) {
-			if (!handle.equals(currentWindow)) {
-
-				popupWindowHandle = handle;
-				driver.switchTo().window(popupWindowHandle);
-				System.out.println("window handled");
-
-				//Thread.sleep(2000);
-
-			}
-		}
-		WebElement select_Radiobutton = driver.findElement(By.xpath("//input[@id='exampleRadios5']"));
-		select_Radiobutton.click();
-
-		Boolean value = driver.findElement(By.xpath("//input[@id='exampleRadios5']")).isSelected();
-		System.out.println("value = " + value);
-
-		WebElement delete_Profile = driver.findElement(By.xpath("//button[normalize-space()='Delete Profile']"));
-
+		Thread.sleep(1000);
+		WebElement radio_button = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@value='option1']")));
+		radio_button.click();
+		Thread.sleep(1000);
+		WebElement delete_Profile = wait.until(
+				ExpectedConditions.elementToBeClickable(By.xpath("//button[normalize-space()='Delete Profile']")));
+		js.executeScript("arguments[0].scrollIntoView();", delete_Profile);
 		delete_Profile.click();
-
-		js.executeScript("window.scrollTo(0,0)");
-		WebElement copy_code = wait
-				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(" //input[@id='copy-code']")));
-		String code = copy_code.getAttribute("value");
-		System.out.println("code = " + code);
-
-		WebElement delete = wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//button[normalize-space()='I love discounts']")));
-
-		delete.click();
+		Thread.sleep(1000);
+		WebElement continue_delete = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(),'No, delete my')]")));
+		js.executeScript("arguments[0].scrollIntoView();", continue_delete);
+		continue_delete.click();
 		Thread.sleep(2000);
-		WebElement Sign_Out  = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Sign Out']")));
-		Sign_Out.click();
-		Thread.sleep(2000);
-
 	}
+
 
 
 	
