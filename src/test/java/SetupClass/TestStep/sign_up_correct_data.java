@@ -154,7 +154,7 @@ public class sign_up_correct_data extends Set {
 
 	@Then("^user download a free product cd$")
 	public void user_download_a_free_product_cd() throws InterruptedException  {
-		/
+		
 		/*WebElement select_ppt = wait.until(ExpectedConditions.elementToBeClickable(
 				By.xpath("//img[@title='Circular Flow Of Process 4 Stages Free PowerPoint Templates Slides']")));
 		js.executeScript("arguments[0].scrollIntoView();", select_ppt);
