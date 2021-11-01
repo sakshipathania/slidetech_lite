@@ -23,23 +23,25 @@ public class sign_up_correct_data extends Set {
 	public void user_is_already_on_sign_up_page_cd() throws InterruptedException  {
 	    
 		driver.get(AppURL);
-		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+		Thread.sleep(2000);
+		driver.manage().deleteAllCookies();
+		Thread.sleep(2000);
+
 		log.info("It's opening the website URL");
-	   // Thread.sleep(1000);
-	    try {
+		try {
 			WebElement logout = driver.findElement(By.xpath("//a[contains(text(),'Sign Out')]"));
 			if (logout.isEnabled()) {
 				logout.click();
-				//Thread.sleep(2000);
+				// Thread.sleep(2000);
 				driver.navigate().refresh();
-				//Thread.sleep(2000);
+				// Thread.sleep(2000);
 			}
 		} catch (NoSuchElementException Ext) {
 
 		}
-	    //Thread.sleep(1000);
 		try {
-			driver.findElement(By.cssSelector("ul.header > li:nth-child(1) > a:nth-child(1)")).click();
+			WebElement Signup = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Sign up")));
+			Signup.click();
 			//Thread.sleep(1000);
 			log.info("It's opening the website URL and redirect user to sign up page");
 		} 
@@ -142,89 +144,62 @@ public class sign_up_correct_data extends Set {
 		
 		Thread.sleep(1000);
 		Actions actions = new Actions(driver);
-		WebElement free_ppt_btn1=wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Free Stuff")));
-		actions.moveToElement(free_ppt_btn1).moveToElement(driver.findElement(By.xpath("//a[contains(text(),'Free PPTs')]"))).click().build().perform();
-		//Thread.sleep(1000);
-		//WebElement free_ppt_btn=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/header/div[1]/div[2]/div/nav/div/div/ul/li[2]/div/ul/li[1]/a")));
-	    //free_ppt_btn.click();
-	    //Thread.sleep(2000);
+		WebElement free_ppt_btn1 = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Free Stuff")));
+		actions.moveToElement(free_ppt_btn1)
+				.moveToElement(driver.findElement(By.xpath("//a[@title='Free Business PPTs']"))).click().build()
+				.perform();
+		
 	   
 	}
 
 	@Then("^user download a free product cd$")
 	public void user_download_a_free_product_cd() throws InterruptedException  {
-		//driver.findElement(By.cssSelector("li.item:nth-child(8) > div:nth-child(1) > div:nth-child(2) > strong:nth-child(1) > span:nth-child(1) > a:nth-child(1)")).click();
-		//Thread.sleep(3000);
-		
+		/
+		/*WebElement select_ppt = wait.until(ExpectedConditions.elementToBeClickable(
+				By.xpath("//img[@title='Circular Flow Of Process 4 Stages Free PowerPoint Templates Slides']")));
+		js.executeScript("arguments[0].scrollIntoView();", select_ppt);
+		select_ppt.click();*/
+		Thread.sleep(1000);
 		driver.get("https://www.slideteam.net/circular-flow-of-process-4-stages-powerpoint-slides-templates.html");
 		Thread.sleep(1000);
-		
 		WebElement dwnd_btn = driver.findElement(By.cssSelector("#clicking"));
 		js.executeScript("arguments[0].scrollIntoView();", dwnd_btn);
-		 dwnd_btn.click();
-		//Thread.sleep(3000);
-	   driver.get("https://www.slideteam.net/");
-	  // Thread.sleep(3000);
+		dwnd_btn.click();
+		Thread.sleep(1000);
+		//"Enjoy this Product" pop will come 
+		WebElement close_pop_up = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='mfp-close roundlink']")));
+		close_pop_up.click();
 	}
 
 	@Then("^user delete the new account created cd$")
 	public void user_delete_the_new_account_created_cd() throws InterruptedException  {
         Thread.sleep(1000);
-	    driver.get("https://www.slideteam.net/");
-		//Thread.sleep(2000);
-		
-	   driver.findElement(By.xpath("//a[contains(.,'My Account')]")).click();
-		 Thread.sleep(1000);
-		 
-		
+		WebElement My_Account = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("My Account")));
+		js.executeScript("arguments[0].click();", My_Account);
+		//My_Account.click();
 
+		// handling the chat window here
+		Set.Chat_window_handle();
 
-try {
-			WebElement iframe = driver.findElement(By.id("livechat-full-view"));
-			if(iframe.isDisplayed()) {
-				driver.switchTo().frame(iframe);   
-				 Actions act = new Actions(driver);
-				 act.moveToElement(driver.findElement(By.cssSelector("#title .icon-minimize"))).build().perform();
-				 Thread.sleep(2000);
-					WebElement chat1=driver.findElement(By.cssSelector("#title .icon-minimize"));
-					 Thread.sleep(1000);
-						chat1.click();
-						 Thread.sleep(1000);
-						 driver.switchTo().defaultContent();
-						 Thread.sleep(1000);
-						 driver.switchTo().parentFrame();
-					 Thread.sleep(1000);
-			}
-			else {
-				
-
-			System.out.println("chat window does not open");
-			}
-		}
-				catch(NoSuchElementException NCP) {
-					
-				}
-
-
-		WebElement Delete_Account = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Delete Account']")));
-		
+		WebElement Delete_Account = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Delete Account']")));
+		Thread.sleep(1000);
 		Delete_Account.click();
-		WebElement radio_button = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@value='option1']")));
+		WebElement radio_button = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@value='option1']")));
 		radio_button.click();
-		
-		WebElement delete_Profile= wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[normalize-space()='Delete Profile']")));
-		js.executeScript("arguments[0].scrollIntoView();",delete_Profile);
-		 delete_Profile.click();
-		 //Thread.sleep(3000);
-		 WebElement continue_delete = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(),'No, delete my')]")));
-		js.executeScript("arguments[0].scrollIntoView();",continue_delete);
+		Thread.sleep(1000);
+		WebElement delete_Profile = wait.until(
+				ExpectedConditions.elementToBeClickable(By.xpath("//button[normalize-space()='Delete Profile']")));
+		js.executeScript("arguments[0].scrollIntoView();", delete_Profile);
+		delete_Profile.click();
+		Thread.sleep(1000);
+		WebElement continue_delete = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(),'No, delete my')]")));
+		js.executeScript("arguments[0].scrollIntoView();", continue_delete);
 		continue_delete.click();
-		 Thread.sleep(2000);
-		//String URLsign_up = driver.getCurrentUrl(); 
-		          //  System.out.println("AfterSignUpurl = " + URLsign_up);
-		//driver.get("https://www.slideteam.net/");
-		//String afternavigation = driver.getCurrentUrl(); 
-		            //System.out.println("AfterSignUpurl = " + afternavigation);
+		Thread.sleep(2000);
+	
 	}
 
 
