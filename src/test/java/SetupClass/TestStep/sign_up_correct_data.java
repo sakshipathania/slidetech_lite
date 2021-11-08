@@ -169,12 +169,13 @@ public class sign_up_correct_data extends Set {
 		//"Enjoy this Product" pop will come 
 		WebElement close_pop_up = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='mfp-close roundlink']")));
 		close_pop_up.click();
+		Thread.sleep(2000);
 	}
 
 	@Then("^user delete the new account created cd$")
 	public void user_delete_the_new_account_created_cd() throws InterruptedException  {
         Thread.sleep(1000);
-		WebElement My_Account = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("My Account")));
+		WebElement My_Account = wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("My Account")));
 		js.executeScript("arguments[0].click();", My_Account);
 		//My_Account.click();
 
